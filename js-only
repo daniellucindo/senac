@@ -1,0 +1,13 @@
+<script>
+    const formatRemoveSpecialChars = (value) => {
+      const valueToNumber = (value || '').replace(/\D/g, '');
+      return valueToNumber;
+    };
+    [...document.querySelectorAll('[data-only-number]')].forEach((item) => {
+      item.addEventListener('input', (e) => {
+        const { currentTarget, currentTarget: { value } } = e;
+        const valueFormat = formatRemoveSpecialChars(value);
+        currentTarget.value = valueFormat;
+      });
+    })
+  </script>
